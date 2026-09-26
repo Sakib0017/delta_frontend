@@ -23,8 +23,8 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-100 px-4 py-8">
-      <form onSubmit={submit} className="bg-white rounded-2xl border p-5 sm:p-7 w-full max-w-md space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-emerald-50/50 px-4 py-8">
+      <form onSubmit={submit} className="bg-white rounded-2xl border border-emerald-100 shadow-sm p-5 sm:p-7 w-full max-w-md space-y-4">
         <h1 className="text-xl sm:text-2xl font-extrabold">Create your account</h1>
         {ok && <div className="bg-green-50 border border-green-200 text-green-700 text-sm p-3 rounded">{ok}</div>}
         {err && <div className="bg-red-50 border border-red-200 text-red-700 text-sm p-3 rounded">{err}</div>}
@@ -36,8 +36,8 @@ export default function Register() {
           <input required type="password" placeholder="Confirm" value={form.confirm} onChange={(e) => setForm({ ...form, confirm: e.target.value })} className="border rounded-xl px-4 py-3 text-base w-full" />
         </div>
         <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} className="w-full text-sm" />
-        <button className="w-full bg-blue-600 text-white rounded-full py-3 font-semibold">Create account</button>
-        <p className="text-sm text-center">Already have an account? <Link to="/admin/login" className="text-blue-600">Login</Link></p>
+        <button className="w-full bg-emerald-700 hover:bg-emerald-800 text-white rounded-full py-3 font-semibold">Create account</button>
+        <p className="text-sm text-center">Already have an account? <Link to="/admin/login" className="text-emerald-700 font-medium">Login</Link></p>
       </form>
     </div>
   );

@@ -1,0 +1,178 @@
+// Central content for the six service pages.
+// `category` maps each slug to the backend projects table so live
+// project entries still appear on the detail page.
+
+export const SERVICES = [
+  {
+    slug: 'building',
+    category: 'climate',
+    icon: 'building',
+    title: 'Building & Infrastructure',
+    tagline: 'Resilient structures for a deltaic nation',
+    short: 'Climate-resilient buildings, polders, embankments and urban infrastructure — planned, designed and supervised end to end.',
+    overview: [
+      'From concept to commissioning, DELTA plans and delivers buildings and infrastructure that stand up to floods, cyclones and saline soils. Our teams combine structural engineering with delta-specific knowledge of foundations, drainage and materials.',
+      'We serve government agencies, developers and industrial clients — handling feasibility, detailed design, tender documentation, construction supervision and quality assurance under one roof.',
+    ],
+    scopes: [
+      { title: 'Residential & Commercial Buildings', desc: 'Architectural planning, structural design and supervision for housing, offices and mixed-use blocks.' },
+      { title: 'Industrial & Institutional Facilities', desc: 'Factories, warehouses, hospitals and campuses engineered for heavy loads and continuous operation.' },
+      { title: 'Flood & Cyclone Resilient Design', desc: 'Elevated plinths, wind-load detailing and flood-proofing for coastal and haor-region construction.' },
+      { title: 'Polders, Embankments & River Works', desc: 'Protective infrastructure designed with hydrological and geotechnical analysis.' },
+      { title: 'Retrofitting & Structural Audit', desc: 'Safety assessment, load testing and strengthening of ageing or damaged structures.' },
+      { title: 'Construction Supervision & QA', desc: 'Site supervision, material testing and third-party quality assurance through handover.' },
+    ],
+    steps: [
+      { title: 'Survey & Feasibility', desc: 'Site investigation, soil testing and techno-economic feasibility.' },
+      { title: 'Detailed Design', desc: 'Architectural, structural and MEP design with BOQ and drawings.' },
+      { title: 'Tender & Award', desc: 'Bidding documents, evaluation support and contract finalisation.' },
+      { title: 'Supervision & Handover', desc: 'Quality control, progress monitoring and defect-liability support.' },
+    ],
+    deliverables: ['Feasibility & soil investigation reports', 'Architectural + structural drawing sets', 'BOQ, cost estimates & tender dossiers', 'Supervision reports & as-built documentation'],
+    stats: [['25+', 'Infrastructure projects'], ['100%', 'BNBC-compliant designs'], ['24/7', 'Site supervision support']],
+  },
+  {
+    slug: 'road',
+    category: 'environ',
+    icon: 'road',
+    title: 'Road & Transportation',
+    tagline: 'Connecting communities, safely and durably',
+    short: 'Rural roads, highways, bridges and traffic systems engineered for monsoon climates and heavy mixed traffic.',
+    overview: [
+      'DELTA designs road networks that survive intense monsoons and year-round heavy use — from village roads to national highway links. Our approach balances pavement science with practical drainage, because most road failures in Bangladesh begin with water.',
+      'We cover the full cycle: alignment studies, pavement and bridge design, road safety audits, construction supervision and maintenance planning.',
+    ],
+    scopes: [
+      { title: 'Rural & Urban Roads', desc: 'Union, upazila and city roads with proper sub-base, surfacing and footpaths.' },
+      { title: 'Highways & Expressways', desc: 'Geometric design, pavement design and interchange planning for high-speed corridors.' },
+      { title: 'Bridges & Culverts', desc: 'Short-span bridges, box culverts and cross-drainage sized for peak monsoon flows.' },
+      { title: 'Drainage & Slope Protection', desc: 'Side drains, outfalls and embankment protection that keep pavements intact.' },
+      { title: 'Road Safety Audits', desc: 'Black-spot analysis, signage, markings and junction improvements.' },
+      { title: 'Maintenance Planning', desc: 'Condition surveys, prioritised repair programmes and asset management.' },
+    ],
+    steps: [
+      { title: 'Traffic & Topo Survey', desc: 'Counts, axle-load studies and topographic mapping.' },
+      { title: 'Design & Estimates', desc: 'Alignment, pavement layers, structures and costing.' },
+      { title: 'Procurement Support', desc: 'Tender documents and contractor evaluation.' },
+      { title: 'Supervision & Audit', desc: 'Layer-by-layer QA, safety checks and handover.' },
+    ],
+    deliverables: ['Traffic & condition survey reports', 'Geometric + pavement design packages', 'Bridge / culvert structural drawings', 'Safety audit & maintenance plans'],
+    stats: [['63+', 'Km of roads designed'], ['40+', 'Bridges & culverts'], ['15', 'Districts served']],
+  },
+  {
+    slug: 'environment',
+    category: 'transportation',
+    icon: 'leaf',
+    title: 'Environmental Assessment',
+    tagline: 'Development that respects the delta',
+    short: 'EIA, ESIA, EMP and environmental compliance that keep projects fundable, lawful and genuinely sustainable.',
+    overview: [
+      'Every major project in Bangladesh needs credible environmental clearance — from DoE approvals to lender safeguards. DELTA prepares assessments that satisfy regulators and financiers while giving engineers practical mitigation measures.',
+      'Our environmental scientists and sociologists work alongside the design team, so safeguards shape the project early instead of arriving as paperwork at the end.',
+    ],
+    scopes: [
+      { title: 'EIA & IEE Studies', desc: 'Screening, scoping, baseline surveys and impact prediction per DoE and ECR 2023.' },
+      { title: 'ESIA for Lender Safeguards', desc: 'Assessments aligned with ADB, World Bank and JICA safeguard policies.' },
+      { title: 'Environmental Management Plans', desc: 'Actionable EMPs with responsibilities, budgets and monitoring schedules.' },
+      { title: 'Baseline Monitoring', desc: 'Air, noise, surface and groundwater sampling with accredited labs.' },
+      { title: 'Resettlement & Social Surveys', desc: 'Census, socio-economic surveys and stakeholder consultation.' },
+      { title: 'Clearance & Compliance Support', desc: 'DoE applications, hearing preparation and audit follow-up.' },
+    ],
+    steps: [
+      { title: 'Screening & Scoping', desc: 'Category determination and terms of reference.' },
+      { title: 'Baseline & Consultation', desc: 'Field sampling and stakeholder meetings.' },
+      { title: 'Impact & Mitigation', desc: 'Prediction matrices and EMP preparation.' },
+      { title: 'Approval & Monitoring', desc: 'Submission, clearance and compliance monitoring.' },
+    ],
+    deliverables: ['IEE / EIA / ESIA reports', 'EMP with monitoring plan', 'Laboratory test compilations', 'Stakeholder consultation records'],
+    stats: [['50+', 'Assessments cleared'], ['3', 'Lender safeguard frameworks'], ['100%', 'DoE-format compliance']],
+  },
+  {
+    slug: 'water',
+    category: 'agricultural',
+    icon: 'drop',
+    title: 'Water & Wastewater',
+    tagline: 'Safe water in, safe water out',
+    short: 'Water supply, treatment plants, sewerage and effluent systems for municipalities and industries.',
+    overview: [
+      'Salinity intrusion, arsenic, flooding and rapid urbanisation make water engineering in Bangladesh uniquely demanding. DELTA designs supply and treatment systems sized for real demand curves and real raw-water quality.',
+      'We work with municipalities, utilities and industries on treatment plants, networks, faecal-sludge management and industrial effluent compliance.',
+    ],
+    scopes: [
+      { title: 'Water Supply Networks', desc: 'Source studies, transmission and distribution design with NRW reduction.' },
+      { title: 'Water Treatment Plants', desc: 'Arsenic / iron removal, desalination pre-treatment and conventional WTPs.' },
+      { title: 'Sewerage & Drainage', desc: 'Sewer networks, pumping stations and stormwater master-planning.' },
+      { title: 'Wastewater & ETP Design', desc: 'STPs and industrial ETPs sized for discharge-standard compliance.' },
+      { title: 'Faecal Sludge Management', desc: 'Containment, collection and treatment chains for non-sewered towns.' },
+      { title: 'O&M & Performance Support', desc: 'Operator training, SOPs and performance auditing of utilities.' },
+    ],
+    steps: [
+      { title: 'Demand & Source Study', desc: 'Population projection, yield tests and quality analysis.' },
+      { title: 'Process & Network Design', desc: 'Treatment trains, hydraulics and layouts.' },
+      { title: 'Tender Documentation', desc: 'Specs, BOQ and O&M manuals.' },
+      { title: 'Commissioning Support', desc: 'Trial runs, testing and operator handover.' },
+    ],
+    deliverables: ['Demand & source assessment', 'Process design + hydraulic models', 'Treatment plant drawings & BOQ', 'O&M manuals & training'],
+    stats: [['30+', 'Water / ETP schemes'], ['12', 'Municipalities supported'], ['Zero', 'Discharge-standard failures']],
+  },
+  {
+    slug: 'digital',
+    category: 'advisory',
+    icon: 'chip',
+    title: 'Digital Monitoring & Smart Systems',
+    tagline: 'See every site, sensor and structure in real time',
+    short: 'IoT sensors, drones, dashboards and AI analytics that turn field data into decisions.',
+    overview: [
+      'DELTA brings construction sites, embankments and farms online — combining low-cost sensors, drone surveys and cloud dashboards so managers see what is happening without waiting for monthly reports.',
+      'From water-level telemetry on polders to progress-tracking dashboards for road programmes, we build monitoring systems field teams actually use.',
+    ],
+    scopes: [
+      { title: 'IoT Sensor Networks', desc: 'Water level, rainfall, air-quality and structural sensors with solar telemetry.' },
+      { title: 'Drone Survey & Mapping', desc: 'Orthomosaics, stockpile volumes, progress mapping and GIS layers.' },
+      { title: 'Project Dashboards', desc: 'Web dashboards for progress, quality tests and contractor performance.' },
+      { title: 'AI Crop & Land Analytics', desc: 'Satellite + field-data models for yield estimation and land-use planning.' },
+      { title: 'Early Warning Integration', desc: 'Threshold alerts via SMS and dashboards for floods and asset stress.' },
+      { title: 'Data Systems & Training', desc: 'Database setup, SOPs and hands-on training for client teams.' },
+    ],
+    steps: [
+      { title: 'Needs & Site Mapping', desc: 'KPI definition and connectivity / power assessment.' },
+      { title: 'Pilot Deployment', desc: 'Sensors or drone missions on a representative stretch.' },
+      { title: 'Platform Build', desc: 'Dashboards, alerts and reporting workflows.' },
+      { title: 'Scale-up & Handover', desc: 'Fleet rollout, documentation and team training.' },
+    ],
+    deliverables: ['Monitoring architecture & KPI plan', 'Sensor / drone datasets + GIS layers', 'Live dashboard with alerts', 'Training & handover package'],
+    stats: [['200+', 'Sensors deployed'], ['500+', 'Hectares drone-mapped'], ['Real-time', 'Alerts & dashboards']],
+  },
+  {
+    slug: 'engineering',
+    category: 'engineering',
+    icon: 'compass',
+    title: 'Engineering Design',
+    tagline: 'Drawings you can build from — first time',
+    short: 'Structural, geotechnical, hydraulic and MEP design review with buildable documentation and BOQs.',
+    overview: [
+      'Good drawings prevent the variations, delays and disputes that sink budgets. DELTA produces — and independently reviews — designs that contractors can actually build: coordinated, code-checked and fully quantified.',
+      'Engage us as your design consultant or as an independent reviewer before you tender. Either way, you get details that survive contact with the site.',
+    ],
+    scopes: [
+      { title: 'Structural Design & Proof-check', desc: 'RCC and steel design per BNBC/ACI with independent verification.' },
+      { title: 'Geotechnical Interpretation', desc: 'Bore-log review, bearing-capacity and foundation recommendations.' },
+      { title: 'Hydraulic & Hydrological Design', desc: 'Flood levels, scour depth, drainage and outfall sizing.' },
+      { title: 'MEP Coordination', desc: 'Electrical, plumbing and HVAC layouts clash-checked with structure.' },
+      { title: 'Estimation & Rate Analysis', desc: 'Detailed BOQ, rate analysis and engineer’s estimates.' },
+      { title: 'Design Review & Vetting', desc: 'Third-party review of others’ designs with marked-up reports.' },
+    ],
+    steps: [
+      { title: 'Brief & Data Collection', desc: 'Requirements, codes, soil and survey data assembly.' },
+      { title: 'Analysis & Modelling', desc: 'Structural / hydraulic modelling and optioneering.' },
+      { title: 'Drawings & BOQ', desc: 'Issued-for-construction sets with quantities.' },
+      { title: 'Review & Support', desc: 'Vetting reports and site-query resolution.' },
+    ],
+    deliverables: ['Calculation books & models', 'IFC drawing sets (arch/structural/MEP)', 'BOQ with rate analysis', 'Vetting / proof-check certificates'],
+    stats: [['120+', 'Design packages issued'], ['60+', 'Third-party reviews'], ['0', 'Tender re-issues needed']],
+  },
+];
+
+export const serviceBySlug = (slug) => SERVICES.find((s) => s.slug === slug);
+
+export const serviceSlugs = SERVICES.map((s) => s.slug);

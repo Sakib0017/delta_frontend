@@ -2,21 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-html { -webkit-text-size-adjust: 100%; }
-body { font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
-img { max-width: 100%; height: auto; }
-.hero-slide { transition: opacity 0.7s ease; }
+/* ---------- Any-device base ---------- */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: clip;
+  min-height: 100svh;
+  background: #fff;
+  color: #0f172a;
+  /* iOS notch / gesture-bar safe areas */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+#root { min-height: 100svh; display: flex; flex-direction: column; }
+img, video, iframe { max-width: 100%; }
+img { height: auto; }
 
-/* Prevent horizontal scroll from long words / tables */
-* { overflow-wrap: break-word; }
+/* Long words / URLs must never force horizontal scroll (320px phones included) */
+*, *::before, *::after { overflow-wrap: break-word; }
 
-/* Larger touch targets on coarse pointers (mobile/tablet) */
-@media (pointer: coarse) {
-  button, a { min-height: 0; }
+/* Fluid headings feel right from 320px phones to ultrawide */
+@layer base {
+  h1 { @apply text-balance; }
+  p { @apply text-pretty; }
 }
 
-/* Extra-small breakpoint helper (used for gallery: xs:grid-cols-2) */
-@media (min-width: 420px) {
-  .xs\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .xs\:h-48 { height: 12rem; }
+.hero-slide { transition: opacity 0.7s ease; }
+
+/* Admin / mobile drawer motion */
+@keyframes drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.drawer-panel { animation: drawer-in 0.22s ease-out; }
+.drawer-backdrop { animation: fade-in 0.18s ease-out; }
+
+/* Visible keyboard focus on every device */
+:focus-visible { outline: 2px solid #059669; outline-offset: 2px; }
+
+/* Slim scrollbars for horizontal chip/tab rails (tablets) */
+.rail { scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.rail::-webkit-scrollbar { height: 6px; }
+.rail::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+
+/* Respect reduced motion (accessibility / low-power devices) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-slide { transition: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Landscape phones with very short height: don't let the hero fill the whole screen */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero-flex { min-height: 320px !important; height: 92svh !important; }
+}
+
+/* Ultrawide: keep readable line lengths even when container stretches */
+@media (min-width: 1800px) {
+  .prose-cap { max-width: 90rem; margin-inline: auto; }
 }

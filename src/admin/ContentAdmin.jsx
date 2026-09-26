@@ -20,7 +20,7 @@ export function VisionAdmin() {
       <div><label className="text-sm font-semibold">Intro (hs_contain)</label><textarea value={form.contain} onChange={(e) => setForm({ ...form, contain: e.target.value })} rows={3} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" /></div>
       <div><label className="text-sm font-semibold">Vision</label><textarea value={form.vision} onChange={(e) => setForm({ ...form, vision: e.target.value })} rows={4} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" /></div>
       <div><label className="text-sm font-semibold">Mission</label><textarea value={form.mission} onChange={(e) => setForm({ ...form, mission: e.target.value })} rows={4} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" /></div>
-      <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg w-full sm:w-auto">Save</button>
+      <button className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-xl font-semibold w-full sm:w-auto">Save</button>
     </form>
   );
 }
@@ -43,7 +43,7 @@ export function AboutAdmin() {
       {Object.entries({ content: 'Main content', eContent1: 'Extra content 1', eContent2: 'Extra content 2', chairmanName: 'Chairman name', chairmanEducation: 'Chairman education', chairmanSpeech: 'Chairman speech', proDetail: 'Project detail' }).map(([k, label]) => (
         <div key={k}><label className="text-sm font-semibold">{label}</label><textarea value={form[k]} onChange={(e) => setForm({ ...form, [k]: e.target.value })} rows={2} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" /></div>
       ))}
-      <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg w-full sm:w-auto">Save</button>
+      <button className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-xl font-semibold w-full sm:w-auto">Save</button>
     </form>
   );
 }
