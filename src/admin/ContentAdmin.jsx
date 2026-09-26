@@ -14,13 +14,13 @@ export function VisionAdmin() {
     setMsg('Saved!');
   };
   return (
-    <form onSubmit={save} className="bg-white border rounded-2xl p-5 space-y-4 max-w-3xl">
-      <h1 className="text-2xl font-bold">Vision & Mission</h1>
+    <form onSubmit={save} className="bg-white border rounded-2xl p-4 sm:p-5 space-y-4 max-w-3xl">
+      <h1 className="text-xl sm:text-2xl font-bold">Vision &amp; Mission</h1>
       {msg && <div className="text-sm text-emerald-700">{msg}</div>}
-      <div><label className="text-sm font-semibold">Intro (hs_contain)</label><textarea value={form.contain} onChange={(e) => setForm({ ...form, contain: e.target.value })} rows={3} className="w-full border rounded-lg px-3 py-2" /></div>
-      <div><label className="text-sm font-semibold">Vision</label><textarea value={form.vision} onChange={(e) => setForm({ ...form, vision: e.target.value })} rows={4} className="w-full border rounded-lg px-3 py-2" /></div>
-      <div><label className="text-sm font-semibold">Mission</label><textarea value={form.mission} onChange={(e) => setForm({ ...form, mission: e.target.value })} rows={4} className="w-full border rounded-lg px-3 py-2" /></div>
-      <button className="bg-emerald-600 text-white px-6 py-2 rounded-lg">Save</button>
+      <div><label className="text-sm font-semibold">Intro (hs_contain)</label><textarea value={form.contain} onChange={(e) => setForm({ ...form, contain: e.target.value })} rows={3} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" /></div>
+      <div><label className="text-sm font-semibold">Vision</label><textarea value={form.vision} onChange={(e) => setForm({ ...form, vision: e.target.value })} rows={4} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" /></div>
+      <div><label className="text-sm font-semibold">Mission</label><textarea value={form.mission} onChange={(e) => setForm({ ...form, mission: e.target.value })} rows={4} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" /></div>
+      <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg w-full sm:w-auto">Save</button>
     </form>
   );
 }
@@ -37,13 +37,13 @@ export function AboutAdmin() {
     setMsg('Saved!');
   };
   return (
-    <form onSubmit={save} className="bg-white border rounded-2xl p-5 space-y-4 max-w-3xl">
-      <h1 className="text-2xl font-bold">About Page Content</h1>
+    <form onSubmit={save} className="bg-white border rounded-2xl p-4 sm:p-5 space-y-4 max-w-3xl">
+      <h1 className="text-xl sm:text-2xl font-bold">About Page Content</h1>
       {msg && <div className="text-sm text-emerald-700">{msg}</div>}
       {Object.entries({ content: 'Main content', eContent1: 'Extra content 1', eContent2: 'Extra content 2', chairmanName: 'Chairman name', chairmanEducation: 'Chairman education', chairmanSpeech: 'Chairman speech', proDetail: 'Project detail' }).map(([k, label]) => (
-        <div key={k}><label className="text-sm font-semibold">{label}</label><textarea value={form[k]} onChange={(e) => setForm({ ...form, [k]: e.target.value })} rows={2} className="w-full border rounded-lg px-3 py-2" /></div>
+        <div key={k}><label className="text-sm font-semibold">{label}</label><textarea value={form[k]} onChange={(e) => setForm({ ...form, [k]: e.target.value })} rows={2} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" /></div>
       ))}
-      <button className="bg-emerald-600 text-white px-6 py-2 rounded-lg">Save</button>
+      <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg w-full sm:w-auto">Save</button>
     </form>
   );
 }

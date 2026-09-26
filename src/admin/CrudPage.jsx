@@ -46,31 +46,32 @@ export default function CrudPage({ title, subtitle, endpoint, fields, columns })
   };
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold">{title}</h1>
-      {subtitle && <p className="text-sm text-slate-500">{subtitle}</p>}
+    <div className="min-w-0">
+      <h1 className="text-xl sm:text-2xl font-bold break-words">{title}</h1>
+      {subtitle && <p className="text-sm text-slate-500 mt-1">{subtitle}</p>}
       {msg && <div className="my-3 bg-emerald-50 border border-emerald-200 text-emerald-700 p-3 rounded text-sm">{msg}</div>}
 
-      <form onSubmit={submit} className="bg-white border rounded-2xl p-5 mt-4 grid md:grid-cols-2 gap-4">
+      <form onSubmit={submit} className="bg-white border rounded-2xl p-4 sm:p-5 mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         {fields.map((f) => (
           <div key={f.name} className={f.type === 'textarea' ? 'md:col-span-2' : ''}>
             <label className="text-sm font-semibold">{f.label}</label>
             {f.type === 'textarea'
-              ? <textarea required={f.required && !editing} value={form[f.name] || ''} onChange={(e) => setForm({ ...form, [f.name]: e.target.value })} rows={3} className="mt-1 w-full border rounded-lg px-3 py-2" />
+              ? <textarea required={f.required && !editing} value={form[f.name] || ''} onChange={(e) => setForm({ ...form, [f.name]: e.target.value })} rows={3} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" />
               : f.type === 'image'
-                ? <input type="file" accept="image/*" required={f.required && !editing} onChange={(e) => setFiles({ ...files, [f.name]: e.target.files[0] })} className="mt-1 w-full text-sm" />
-                : <input required={f.required && !editing} value={form[f.name] || ''} onChange={(e) => setForm({ ...form, [f.name]: e.target.value })} className="mt-1 w-full border rounded-lg px-3 py-2" />}
+                ? <input type="file" accept="image/*" required={f.required && !editing} onChange={(e) => setFiles({ ...files, [f.name]: e.target.files[0] })} className="mt-1 w-full text-sm py-2" />
+                : <input required={f.required && !editing} value={form[f.name] || ''} onChange={(e) => setForm({ ...form, [f.name]: e.target.value })} className="mt-1 w-full border rounded-lg px-3 py-2 text-base" />}
           </div>
         ))}
-        <div className="md:col-span-2 flex gap-2">
-          <button className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold">{editing ? 'Update' : 'Save'}</button>
-          {editing && <button type="button" onClick={() => { setEditing(null); setForm({}); }} className="border px-4 py-2 rounded-lg">Cancel</button>}
+        <div className="md:col-span-2 flex flex-col sm:flex-row gap-2">
+          <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg font-semibold w-full sm:w-auto">{editing ? 'Update' : 'Save'}</button>
+          {editing && <button type="button" onClick={() => { setEditing(null); setForm({}); }} className="border px-4 py-2.5 rounded-lg w-full sm:w-auto">Cancel</button>}
         </div>
       </form>
 
-      <div className="bg-white border rounded-2xl mt-6 overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead><tr className="bg-slate-50 text-left">{columns.map((c) => <th key={c} className="px-4 py-3">{c}</th>)}<th className="px-4 py-3 text-right">Actions</th></tr></thead>
+      {/* Desktop table */}
+      <div className="bg-white border rounded-2xl mt-4 sm:mt-6 overflow-x-auto hidden sm:block">
+        <table className="w-full text-sm min-w-[560px]">
+          <thead><tr className="bg-slate-50 text-left">{columns.map((c) => <th key={c} className="px-4 py-3 capitalize">{c}</th>)}<th className="px-4 py-3 text-right">Actions</th></tr></thead>
           <tbody>
             {items.map((it) => (
               <tr key={it._id} className="border-t">
@@ -88,6 +89,28 @@ export default function CrudPage({ title, subtitle, endpoint, fields, columns })
           </tbody>
         </table>
         {items.length === 0 && <div className="p-6 text-center text-slate-400 text-sm">No records yet.</div>}
+      </div>
+
+      {/* Mobile cards */}
+      <div className="sm:hidden mt-4 space-y-3">
+        {items.map((it) => {
+          const thumb = columns.map((c) => it[c] || '').find((v) => typeof v === 'string' && /\.(jpg|jpeg|png|webp|gif|svg)/i.test(v)) || it.img || it.image;
+          return (
+            <div key={it._id} className="bg-white border rounded-xl p-3 flex gap-3">
+              {thumb ? <img src={imgUrl(thumb)} className="h-14 w-16 object-cover rounded-lg shrink-0" alt="" /> : null}
+              <div className="flex-1 min-w-0 text-sm">
+                {columns.filter((c) => !c.toLowerCase().includes('img') && c !== 'image').slice(0, 2).map((c) => (
+                  <div key={c} className="truncate"><span className="text-slate-400 capitalize text-xs">{c}: </span>{String(it[c] ?? '—').slice(0, 60)}</div>
+                ))}
+                <div className="mt-1.5 flex gap-4">
+                  <button onClick={() => startEdit(it)} className="text-blue-600 font-medium">Edit</button>
+                  <button onClick={() => del(it._id)} className="text-red-600 font-medium">Delete</button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+        {items.length === 0 && <div className="bg-white border rounded-xl p-6 text-center text-slate-400 text-sm">No records yet.</div>}
       </div>
     </div>
   );

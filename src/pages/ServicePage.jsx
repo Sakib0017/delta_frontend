@@ -22,21 +22,21 @@ export default function ServicePage() {
   }, [meta.category]);
 
   return (
-    <div>
-      <section className="bg-slate-900 text-white py-24 px-6">
-        <h1 className="text-4xl md:text-6xl font-light max-w-6xl mx-auto">{items[0]?.header || meta.title}</h1>
+    <div className="overflow-x-hidden">
+      <section className="bg-slate-900 text-white py-12 sm:py-16 lg:py-24 px-4 sm:px-6">
+        <h1 className="text-2xl sm:text-4xl lg:text-6xl font-light max-w-6xl mx-auto leading-tight">{items[0]?.header || meta.title}</h1>
       </section>
-      <section className="max-w-6xl mx-auto px-4 py-12 grid gap-8">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 grid grid-cols-1 gap-4 sm:gap-8">
         {items.map((row) => (
           <article key={row._id} className="flex flex-col md:flex-row rounded-2xl overflow-hidden border shadow-sm bg-white">
-            <img src={imgUrl(row.img)} alt="" className="w-full md:w-1/3 h-64 object-cover" />
-            <div className="p-5">
+            <img src={imgUrl(row.img)} alt="" loading="lazy" className="w-full md:w-1/3 h-52 sm:h-64 object-cover shrink-0" />
+            <div className="p-4 sm:p-5 flex-1">
               <div className="text-xs text-slate-500">{row.header}</div>
-              <p className="mt-2 whitespace-pre-line">{row.content}</p>
+              <p className="mt-2 text-sm sm:text-base whitespace-pre-line leading-relaxed">{row.content}</p>
             </div>
           </article>
         ))}
-        {items.length === 0 && <p className="text-slate-500">No entries yet for this section.</p>}
+        {items.length === 0 && <p className="text-slate-500 text-sm sm:text-base text-center py-6">No entries yet for this section.</p>}
       </section>
     </div>
   );
